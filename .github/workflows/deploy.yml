@@ -1,0 +1,25 @@
+name: Deploy Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: enterprise-webapp-akshay
+          package: ./app
