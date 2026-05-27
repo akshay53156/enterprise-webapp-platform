@@ -22,4 +22,4 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: enterprise-webapp-akshay
-          package: ./app
+          package: .
