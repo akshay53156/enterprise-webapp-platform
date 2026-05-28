@@ -1,4 +1,4 @@
-name: Deploy Azure Web App
+name: Deploy Web App
 
 on:
   push:
@@ -10,13 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Azure Login
-        uses: azure/login@v2
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - uses: actions/checkout@v4
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
